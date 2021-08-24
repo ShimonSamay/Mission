@@ -7,13 +7,17 @@ var countryInp = document.getElementById("countryinp");
 var exe1button = document.getElementById("exe1btn");
 
 exe1button.addEventListener("click", function () {
+  var time = new Date ;
   var person = {
-    firstName: fnameInp.value,
-    lastName: lnameInp.value,
-    birthYear: birthYearInp.value,
+    FirstName: fnameInp.value,
+    LastName: lnameInp.value,
+    BirthYear: birthYearInp.value,
     ID: idInp.value,
-    livingAt: countryInp.value,
-    
+    LivingAt: countryInp.value,
+    TestDate : {
+      DateOfTest : `${time.getDay()}/${time.getMonth()}/${time.getFullYear()}` ,
+      TestHour : ` ${time.getHours()}: ${time.getMinutes()}: ${time.getSeconds()} ` ,
+    } 
   };
   patientsArray.push(person);
   for (var i = 0; i < patientsArray.length; i++) {
@@ -84,7 +88,7 @@ exe7Button.addEventListener("click", function () {
         exe7p.innerHTML = `<p> first name : ${patientsArray[i].firstName} , last name : ${patientsArray[i].lastName} , id : ${patientsArray[i].id} , birth year : ${patientsArray[i].birthYear} </p>`;
     } 
     if (exe7p.innerHTML.length < 2) {
-        exe7p.innerHTML = `not here`;
+        exe7p.innerHTML = "dont exist";
     }
   }
 });
